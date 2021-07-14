@@ -1,0 +1,22 @@
+.form {
+    color: blue;
+    display: flex;
+    flex-direction: column;
+    border: 1 px gray;
+    text-align: center;
+    border: 1px solid gray;
+    max-width: 250px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.form__field {
+    
+}
+
+.form__field > [type="text"] {
+    padding: 14px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}

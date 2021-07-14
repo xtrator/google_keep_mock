@@ -2,10 +2,8 @@
 
 <h1>Notes</h1>
 
+<%= render 'form', note: Note.new %>
+
 <div class=notes__container>
   <%= render @notes %>
 </div>
-
-<br>
-
-<%= link_to 'New Note', new_note_path %>
