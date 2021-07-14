@@ -1,12 +1,12 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
 
-  # GET /notes or /notes.json
+  # GET /notes
   def index
     @notes = Note.active
   end
 
-  # GET /notes/1 or /notes/1.json
+  # GET /notes/1
   def show
   end
 
@@ -19,7 +19,7 @@ class NotesController < ApplicationController
   def edit
   end
 
-  # POST /notes or /notes.json
+  # POST /notes
   def create
     @note = Note.new(note_params)
 
@@ -32,18 +32,18 @@ class NotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /notes/1 or /notes/1.json
+  # PATCH/PUT /notes/1
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: "Note was successfully updated." }
+        format.html { redirect_to root_path, notice: "Note was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /notes/1 or /notes/1.json
+  # DELETE /notes/1
   def destroy
     @note.trashed!
     @note.save
