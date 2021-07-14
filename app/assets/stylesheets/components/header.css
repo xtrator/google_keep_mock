@@ -1,0 +1,9 @@
+.header {
+    padding: 16px;
+    border-bottom: 2px solid gray;
+}
+
+.header__heading {
+    font-size: 32px;
+    color: gray;
+}

@@ -1,0 +1,12 @@
+.navbar {
+    width: 200px;
+}
+
+.navbar__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__item {
+    padding: 8px;
+}

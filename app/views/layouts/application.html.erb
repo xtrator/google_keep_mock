@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <h1 class="header__heading">Keep</h1>
+    </header>
+    <div style="display: flex;">
+      <nav class="navbar">
+        <ul class="navbar__list">
+          <li class="navbar__item"><%= link_to "notes", root_path %></li>
+          <li class="navbar__item"><%= link_to "trash", root_path %></li>
+        </ul>
+      </nav>
+      <section>
+        <%= yield %>
+      </section>
+    </div>
   </body>
 </html>
