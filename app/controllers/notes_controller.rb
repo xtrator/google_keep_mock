@@ -49,11 +49,24 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1 or /notes/1.json
   def destroy
-    @note.destroy
+    @note.status = 1
+    @note.save
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: "Note was successfully destroyed." }
+      format.html { redirect_to notes_url, notice: "Note was successfully sent to recycle bin." }
       format.json { head :no_content }
     end
+  end
+
+  def restore
+    @note = Note.find(params[:note])
+    @note.status = 0
+    @note.save
+
+    respond_to do |format|
+      format.html { redirect_to notes_url, notice: "Note was successfully restored." }
+      format.json { head :no_content }
+    end
+
   end
 
   private
