@@ -1,0 +1,12 @@
+<tr>
+	<td><%= note.title %></td>
+	<td><%= note.body %></td>
+	<td><%= note.status %></td>
+	<td><%= link_to 'Show', note %></td>
+	<td><%= link_to 'Edit', edit_note_path(note) %></td>
+	<% if note.active? %>
+		<td><%= link_to 'Trash', note, method: :delete %></td>
+	<% else %>
+		<td><%= link_to 'Restore', restore_path(note) %></td>
+	<% end %>
+</tr>
