@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notes</h1>
+<h1><%= @is_trash_page ? "Trash" : "Notes" %></h1>
 
-<%= render 'form', note: Note.new %>
+<%= render 'form', note: Note.new unless @is_trash_page %>
 
 <div class=notes__container>
   <%= render @notes %>

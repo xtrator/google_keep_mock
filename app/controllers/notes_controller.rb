@@ -65,6 +65,7 @@ class NotesController < ApplicationController
 
   def trash
     @notes = Note.trashed
+    @is_trash_page = true
     render :index
   end
 
