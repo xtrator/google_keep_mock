@@ -25,7 +25,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: "Note was successfully created." }
+        format.html { redirect_to notes_path, notice: "Note was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -48,7 +48,7 @@ class NotesController < ApplicationController
     @note.trashed!
     @note.save
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: "Note was successfully sent to recycle bin." }
+      format.html { redirect_to notes_path, notice: "Note was successfully sent to trash." }
     end
   end
 
@@ -58,7 +58,7 @@ class NotesController < ApplicationController
     @note.save
 
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: "Note was successfully restored." }
+      format.html { redirect_to trash_path, notice: "Note was successfully restored." }
     end
 
   end
