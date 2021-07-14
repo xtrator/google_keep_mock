@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   # GET /notes or /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.active
   end
 
   # GET /notes/1 or /notes/1.json
@@ -63,6 +63,11 @@ class NotesController < ApplicationController
 
   end
 
+  def trash
+    @notes = Note.trashed
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
@@ -71,6 +76,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:title, :body, :status)
+      params.require(:note).permit(:title, :body)
     end
 end
