@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Note.destroy_all
+
+puts "### Seeding Notes"
+10.times do |i|
+    Note.create(title: "Note#{i+1}", body: "Lorem Ipsum Dolores De Espalda")
+    Note.create(title: "Tarea#{i+1}", body: "Lorem Ipsum Dolores De Muñeca", status: 1)
+end
+puts "### Finished Seeding Notes"
