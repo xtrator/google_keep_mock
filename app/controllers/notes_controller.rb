@@ -26,10 +26,8 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: "Note was successfully created." }
-        format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,32 +37,28 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.update(note_params)
         format.html { redirect_to @note, notice: "Note was successfully updated." }
-        format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /notes/1 or /notes/1.json
   def destroy
-    @note.status = 1
+    @note.archived!
     @note.save
     respond_to do |format|
       format.html { redirect_to notes_url, notice: "Note was successfully sent to recycle bin." }
-      format.json { head :no_content }
     end
   end
 
   def restore
     @note = Note.find(params[:note])
-    @note.status = 0
+    @note.active!
     @note.save
 
     respond_to do |format|
       format.html { redirect_to notes_url, notice: "Note was successfully restored." }
-      format.json { head :no_content }
     end
 
   end

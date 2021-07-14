@@ -20,7 +20,7 @@
         <td><%= note.status %></td>
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <% if note.status.zero? %>
+        <% if note.active? %>
           <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% else %>
           <td><%= link_to 'Restore', restore_path(note), data: { confirm: 'Are you sure?' } %></td>
