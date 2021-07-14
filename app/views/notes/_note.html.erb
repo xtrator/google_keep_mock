@@ -1,12 +1,14 @@
-<tr>
-	<td><%= note.title %></td>
-	<td><%= note.body %></td>
-	<td><%= note.status %></td>
-	<td><%= link_to 'Show', note %></td>
-	<td><%= link_to 'Edit', edit_note_path(note) %></td>
-	<% if note.active? %>
-		<td><%= link_to 'Trash', note, method: :delete %></td>
-	<% else %>
-		<td><%= link_to 'Restore', restore_path(note) %></td>
-	<% end %>
-</tr>
+<div>
+	<div class="note">
+		<h2 class="note__title"><%= note.title %></h2>
+		<p class="note__body"><%= note.body %></p>
+		<div class="note__actions">
+			<% if note.active? %>
+				<%= link_to 'edit', edit_note_path(note) %>
+				<%= link_to 'trash', note, method: :delete %>
+			<% else %>
+				<%= link_to 'restore', restore_path(note) %>
+			<% end %>
+		</div>
+	</div>
+</div>
